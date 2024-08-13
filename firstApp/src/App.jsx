@@ -1,19 +1,21 @@
 import React from "react";
 import "./App.css";
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Header from "./React-Navigation/header";
 import AboutPage from "./pages/AboutPage";
+import HeroSection from "./components/HeroSection";
+import MainLayout from "./layouts/MainLayout";
 
 function App() {
   return (
     <div>
       <>
         <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Header />} />
-            <Route path="/about" element={<AboutPage />} />
-          </Routes>
+          <MainLayout>
+            <Routes>
+              <Route path="/" element={<HeroSection />} />
+              <Route path="/about" element={<AboutPage />} />
+            </Routes>
+          </MainLayout>
         </BrowserRouter>
       </>
     </div>

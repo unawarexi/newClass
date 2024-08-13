@@ -1,9 +1,11 @@
 import React from "react";
+import Header from "../components/Header";
 
 const AboutPage = () => {
   return (
     <div className="bg-gray-100 min-h-screen flex flex-col items-center justify-center p-6">
       <div className="max-w-4xl w-full bg-white rounded-lg shadow-lg p-8">
+        <Header />
         <h1 className="text-4xl font-bold text-gray-800 mb-6 text-center">
           About Us
         </h1>
