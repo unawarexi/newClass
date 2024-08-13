@@ -8,6 +8,8 @@ import {
   FaQuestionCircle,
 } from "react-icons/fa";
 
+import { IoBookmarks } from "react-icons/io5";
+
 const NavItems = () => {
   // Array of navigation links with associated icons
   const NavLinks = [
@@ -15,6 +17,7 @@ const NavItems = () => {
     { name: "About", Path: "/about", icon: <FaInfoCircle /> },
     { name: "Contact", Path: "/contact", icon: <FaPhone /> },
     { name: "FAQ", Path: "/faq", icon: <FaQuestionCircle /> },
+    { name: "Portfolio", Path: "/portfolio", icon: <IoBookmarks /> },
   ];
 
   return (
