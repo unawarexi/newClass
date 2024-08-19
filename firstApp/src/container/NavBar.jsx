@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import NavItems from "../components/NavItems";
+import { useNavigate } from "react-router-dom";
 
 const NavBar = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const Navigate = useNavigate();
+
+  const Authenticated = () => {
+    if (isAuthenticated) {
+      setIsAuthenticated(false);
+      Navigate("/");
+    } else {
+      null;
+    }
+  };
+
   return (
     <header className="text-gray-600 body-font">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
@@ -32,8 +45,12 @@ const NavBar = () => {
           <a className="mr-5 hover:text-gray-900">Third Link</a>
           <a className="mr-5 hover:text-gray-900">Fourth Link</a>
         </nav> */}
-        <button className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
-          Button
+        <button
+          onClick={Authenticated}
+          className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0"
+        >
+          {isAuthenticated ? "Logout" : "Login"}
+
           <svg
             fill="none"
             stroke="currentColor"

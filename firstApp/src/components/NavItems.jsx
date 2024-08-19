@@ -13,7 +13,7 @@ import { IoBookmarks } from "react-icons/io5";
 const NavItems = () => {
   // Array of navigation links with associated icons
   const NavLinks = [
-    { name: "Home", Path: "/", icon: <FaHome /> },
+    { name: "Home", Path: "/home", icon: <FaHome /> },
     { name: "About", Path: "/about", icon: <FaInfoCircle /> },
     { name: "Contact", Path: "/contact", icon: <FaPhone /> },
     { name: "FAQ", Path: "/faq", icon: <FaQuestionCircle /> },
