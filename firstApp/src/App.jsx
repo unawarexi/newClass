@@ -27,13 +27,15 @@ function App() {
         <MainLayout>
           {/* --------------- BASIC ROUTES ------------- */}
           <Route path="/about" element={<AboutPage />} />
+
+          {/* ----------- conditional routes ----------------------- */}
           <button
             onClick={() => setToggle(!toggle)}
             className="bg-blue-500 text-white font-semibold py-2 px-4 rounded mb-4"
           >
             Toggle Authentication
           </button>
-          {/* ----------- conditional routes ----------------------- */}
+
           <Routes>
             <Route
               path="/"
