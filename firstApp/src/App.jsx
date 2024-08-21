@@ -25,6 +25,8 @@ function App() {
     <div className="container mx-auto p-4">
       <BrowserRouter>
         <MainLayout>
+          {/* --------------- BASIC ROUTES ------------- */}
+          <Route path="/about" element={<AboutPage />} />
           <button
             onClick={() => setToggle(!toggle)}
             className="bg-blue-500 text-white font-semibold py-2 px-4 rounded mb-4"
@@ -48,8 +50,6 @@ function App() {
                 </>
               }
             />
-            <Route path="/about" element={<AboutPage />} />
-
             <Route path="/landing" element={<Landing />} />
             <Route path="blog/*" element={<Blog />} />
             <Route path="dashboard/*" element={<Dashboard />} />
