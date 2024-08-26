@@ -18,6 +18,8 @@ import Reviews from "./React-Navigation/DynamicRouting/Reviews";
 import ReviewDetail from "./React-Navigation/DynamicRouting/ReviewID";
 import Settings from "./React-Navigation/NestedRouting/Settings";
 
+import Categories from "./apis/Categories";
+
 function App() {
   const [toggle, setToggle] = useState(true);
 
@@ -25,9 +27,6 @@ function App() {
     <div className="container mx-auto p-4">
       <BrowserRouter>
         <MainLayout>
-          {/* --------------- BASIC ROUTES ------------- */}
-          <Route path="/about" element={<AboutPage />} />
-
           {/* ----------- conditional routes ----------------------- */}
           <button
             onClick={() => setToggle(!toggle)}
@@ -37,6 +36,9 @@ function App() {
           </button>
 
           <Routes>
+            {/* --------------- BASIC ROUTES ------------- */}
+            <Route path="/about" element={<AboutPage />} />
+
             <Route
               path="/"
               element={toggle ? <Authentication /> : <Authentication2 />}
@@ -61,6 +63,8 @@ function App() {
             <Route path="/products/:productId" element={<ProductDetail />} />
             <Route path="/reviews" element={<Reviews />} />
             <Route path="/reviews/:reviewId" element={<ReviewDetail />} />
+
+            <Route path="/cat" element={<Categories />} />
           </Routes>
         </MainLayout>
       </BrowserRouter>
