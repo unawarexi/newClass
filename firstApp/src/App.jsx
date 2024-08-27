@@ -19,6 +19,8 @@ import ReviewDetail from "./React-Navigation/DynamicRouting/ReviewID";
 import Settings from "./React-Navigation/NestedRouting/Settings";
 
 import Categories from "./apis/Categories";
+import IndexComponents from "./redux/components/IndexComponents";
+import MealDetail from "./apis/MealDetails";
 
 function App() {
   const [toggle, setToggle] = useState(true);
@@ -65,6 +67,8 @@ function App() {
             <Route path="/reviews/:reviewId" element={<ReviewDetail />} />
 
             <Route path="/cat" element={<Categories />} />
+            <Route path="/mealdetails/:id" element={<MealDetail />} />
+            <Route path="/redux" element={<IndexComponents />} />
           </Routes>
         </MainLayout>
       </BrowserRouter>

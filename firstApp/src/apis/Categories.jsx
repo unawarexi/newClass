@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Meals from "./Meals";
 
 const Categories = () => {
   // State to hold the fetched categories
@@ -31,30 +32,36 @@ const Categories = () => {
   }, []); // Empty dependency array to run only once
 
   return (
-    <div className="container mx-auto p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 bg-gray-100 rounded-lg shadow-md">
-      <h1 className="text-3xl font-bold text-center text-gray-800 col-span-full mb-6">
-        Categories
-      </h1>
-      {/* Loop through categories array and render each category */}
-      {categories.map((category) => (
-        <ul
-          key={category.idCategory}
-          className="list-none bg-white rounded-lg shadow-lg shadow-red-500 p-4 flex flex-col items-center text-center"
-        >
-          {/* Category thumbnail */}
-          <img
-            src={category.strCategoryThumb}
-            alt={category.strCategory}
-            className="w-full h-auto object-cover rounded-md mb-4"
-          />
-          {/* Category name */}
-          <h4 className="text-xl font-semibold text-gray-700 mb-2">
-            {category.strCategory}
-          </h4>
-          {/* Uncomment the paragraph below to display category descriptions */}
-          {/* <p className="text-sm text-gray-600">{category.strCategoryDescription}</p> */}
-        </ul>
-      ))}
+    <div className="container mx-auto p-6 gap-6 bg-gray-100 rounded-lg shadow-md">
+      <div className="">
+        <Meals />
+      </div>
+
+      <div className="grid p-6 gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <h1 className="text-3xl font-bold text-center text-gray-800 col-span-full mb-6">
+          Categories
+        </h1>
+        {/* Loop through categories array and render each category */}
+        {categories.map((category) => (
+          <ul
+            key={category.idCategory}
+            className="list-none bg-white rounded-lg shadow-lg shadow-red-500 p-4 flex flex-col items-center text-center"
+          >
+            {/* Category thumbnail */}
+            <img
+              src={category.strCategoryThumb}
+              alt={category.strCategory}
+              className="w-full h-auto object-cover rounded-md mb-4"
+            />
+            {/* Category name */}
+            <h4 className="text-xl font-semibold text-gray-700 mb-2">
+              {category.strCategory}
+            </h4>
+            {/* Uncomment the paragraph below to display category descriptions */}
+            {/* <p className="text-sm text-gray-600">{category.strCategoryDescription}</p> */}
+          </ul>
+        ))}
+      </div>
     </div>
   );
 };
