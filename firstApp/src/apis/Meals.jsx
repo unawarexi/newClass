@@ -8,11 +8,7 @@ const Meals = () => {
 
   const fetchMeals = async (query) => {
     try {
-      const response = await axios.get(MEAL_URL, {
-        params: {
-          s: query,
-        },
-      });
+      const response = await axios.get(MEAL_URL, { params: { s: query } });
 
       if (response && response.data && response.data.meals) {
         setMeals(response.data.meals);
@@ -25,7 +21,7 @@ const Meals = () => {
   };
 
   useEffect(() => {
-    fetchMeals("lamb");
+    fetchMeals("Breakfast");
   }, []);
 
   return (
