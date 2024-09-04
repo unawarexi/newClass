@@ -1,35 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import axios from "axios";
 import Meals from "./Meals";
+import { FadeInUp } from "../animations/Animation";
+import { AnimatePresence, motion } from "framer-motion";
+
+import { CategoriesContext } from "../context/ContextProvider";
 
 const Categories = () => {
-  // State to hold the fetched categories
-  const [categories, setCategories] = useState([]);
-
-  // Base URL for fetching categories data from the API
-  const BASE_URL = "https://www.themealdb.com/api/json/v1/1/categories.php";
-
-  // Function to fetch categories data from the API
-  const fetchCategories = async () => {
-    try {
-      const response = await axios.get(BASE_URL);
-
-      // Check if the response has the expected data and set it to state
-      if (response && response.data && response.data.categories) {
-        setCategories(response.data.categories);
-      } else {
-        console.error("Unable to fetch categories data");
-      }
-    } catch (error) {
-      // Log any errors encountered during fetching
-      console.error("Error: Categories data unavailable");
-    }
-  };
-
-  // useEffect to run the fetchCategories function when the component mounts
-  useEffect(() => {
-    fetchCategories();
-  }, []); // Empty dependency array to run only once
+  const { categories } = useContext(CategoriesContext);
 
   return (
     <div className="container mx-auto p-6 gap-6 bg-gray-100 rounded-lg shadow-md">
@@ -43,23 +21,26 @@ const Categories = () => {
         </h1>
         {/* Loop through categories array and render each category */}
         {categories.map((category) => (
-          <ul
-            key={category.idCategory}
-            className="list-none bg-white rounded-lg shadow-lg shadow-red-500 p-4 flex flex-col items-center text-center"
-          >
-            {/* Category thumbnail */}
-            <img
-              src={category.strCategoryThumb}
-              alt={category.strCategory}
-              className="w-full h-auto object-cover rounded-md mb-4"
-            />
-            {/* Category name */}
-            <h4 className="text-xl font-semibold text-gray-700 mb-2">
-              {category.strCategory}
-            </h4>
-            {/* Uncomment the paragraph below to display category descriptions */}
-            {/* <p className="text-sm text-gray-600">{category.strCategoryDescription}</p> */}
-          </ul>
+          <AnimatePresence>
+            <motion.ul
+              {...FadeInUp}
+              key={category.idCategory}
+              className="list-none bg-white rounded-lg shadow-lg shadow-red-500 p-4 flex flex-col items-center text-center"
+            >
+              {/* Category thumbnail */}
+              <img
+                src={category.strCategoryThumb}
+                alt={category.strCategory}
+                className="w-full h-auto object-cover rounded-md mb-4"
+              />
+              {/* Category name */}
+              <h4 className="text-xl font-semibold text-gray-700 mb-2">
+                {category.strCategory}
+              </h4>
+              {/* Uncomment the paragraph below to display category descriptions */}
+              {/* <p className="text-sm text-gray-600">{category.strCategoryDescription}</p> */}
+            </motion.ul>
+          </AnimatePresence>
         ))}
       </div>
     </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import Images from "../assets/Image";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   // useState and create toggleButton function
@@ -17,7 +18,7 @@ const HeroSection = () => {
             Chillwave portland ugh, knausgaard fam polaroid iPhone. Man braid
             swag typewriter affogato, hella selvage wolf narwhal dreamcatcher.
           </p>
-          <div className="flex w-full md:justify-start justify-center items-end">
+          <div className="flex space-x-4 w-full md:justify-start justify-center items-end">
             <div className="relative mr-4 md:w-full lg:w-full xl:w-1/2 w-2/4">
               <label
                 for="hero-field"
@@ -37,6 +38,12 @@ const HeroSection = () => {
             <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
               Button
             </button>
+            <Link
+              to="/cat"
+              className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+            >
+              categories
+            </Link>
           </div>
           <p className="text-sm mt-2 text-gray-500 mb-8 w-full">
             Neutra shabby chic ramps, viral fixie.
